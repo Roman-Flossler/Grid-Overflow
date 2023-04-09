@@ -1,35 +1,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grid overflow (CSS gallery layout)</title>
 <link rel="stylesheet" href="GridOverflow3D.css">
 <style>	
 	body {		
 		max-width: 880px;
 		margin: auto;	
-		padding: 4vw;
+		padding: 3vw;
 		background-image: linear-gradient(to bottom,rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;	
-		line-height: 1.4em;
+		line-height: 1.33em;
 		color:  rgba(255, 255, 255, 0.88); 
 	}	
  
-.grid-overflow {
+.gridOverflow {
 		--gridGap: 10px;	
 		--itemWidth: 210px;
 		--itemRounding: 3px;
 		--linkActionIcon: '⤢';
 }
 
-.textSquare {	
-	display: inline-flex; 	
-	align-items: center; 
-	justify-content: center;	
-	padding: 1rem;
+.info {	
 	background-color:  #750015;
+	margin: 0;
 }
-
-.textSquare span::first-letter {	
+.info span::first-letter {	
 	font-size: 180%;
 	font-family: serif;	
 }
@@ -41,25 +38,28 @@
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* -------------------------------- */
+
+
 
 </style>
 </head>
 
 <body>
 
-<div class="grid-overflow fx3D actionIcon">
-	<a href="#" class="gridItem vertigo"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/sorvagsvatn-lake.jpg"> <span class="caption">.go-vertigo class</span></a>
-	<a href="#" class="gridItem"><img src="https://www.faroeislands.io/photos/faroe-islands-map.jpg"></a>
-	<a href="#" class="gridItem panorama"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/klaksvik-sheeps.jpg"> <span class="caption">.go-panorama class</span></a>
+<div class="gridOverflow go-3Dfx go-actionIcon">
+	<a href="#" class="go_gridItem go_gridItem-vertigo"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/sorvagsvatn-lake.jpg"> <span class="go_caption">.go_gridItem-vertigo class</span></a>
+	<a href="#" class="go_gridItem"><img src="https://www.faroeislands.io/photos/faroe-islands-map.jpg"></a>
+	<a href="#" class="go_gridItem go_gridItem-panorama"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/klaksvik-sheeps.jpg"> <span class="go_caption">.go_gridItem-panorama class</span></a>
 
-	<a href="#"  class="gridItem VIP"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/puffins.jpg"><span class="caption">.go-VIP class</span></a>
-	<a href="#" class="gridItem"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/mykines-lighthouse.jpg"></a>	
-	<a href="#"  class="gridItem"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/mulafossur-panorama.jpg"></a>
-	<a href="#"  class="gridItem"><img src="https://www.faroeislands.io/photos/saksun-sheep.jpg"></a>
+	<a href="#"  class="go_gridItem go_gridItem-VIP"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/puffins.jpg"><span class="go_caption">.go_gridItem-VIP class</span>
+	<a href="#" class="go_gridItem"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/mykines-lighthouse.jpg"></a>	
+	<a href="#"  class="go_gridItem"><img src="https://roman-flossler.github.io/StoryShowGallery/photos/mulafossur-panorama.jpg"></a>
+	<a href="#"  class="go_gridItem"><img src="https://www.faroeislands.io/photos/saksun-sheep.jpg"></a>
 
-	<a href="https://www.faroeislands.io/" class="gridItem panorama"><div class="textSquare Heading"># Grid Overflow </div><span class="caption">.panorama class</span></a>
-	<div href="#"  class="gridItem"><div class="textSquare"><span>CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable by CSS variables.</span></div></div>
-	<div href="#" style="height: auto;"  class="gridItem"><div class="textSquare"><span>Grid overflow creates respon&shy;sive square grid, where grid items can be given vertigo, pa&shy;no&shy;rama or VIP class to over&shy;flow into the next cell.  </span></div></div>
+	<a href="https://www.faroeislands.io/" class="go_gridItem go_gridItem-panorama"><div class="go-centered heading"># Grid Overflow </div><span class="go_caption">.go_gridItem-panorama class</span></a>
+	<div href="#" class="go_gridItem"><p class="go-centered info"><span>CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable by CSS variables.</span></p></div>
+	<div href="#" class="go_gridItem"><p class="go-centered info"><span>Grid overflow crea&shy;tes respon&shy;sive square grid, where grid items can be given go-vertigo, pa&shy;no&shy;rama or go-VIP class to over&shy;flow into the next cell.  </span></p></div>
 	
 
 </div>

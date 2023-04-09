@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Grid overflow (CSS gallery layout)</title>
+<link rel="stylesheet" href="GridOverflow3D.css">
 <style>	
 	body {		
 		max-width: 880px;
@@ -11,148 +12,8 @@
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;	
 		line-height: 1.4em;
 		color:  rgba(255, 255, 255, 0.88); 
-	}
-
-	.grid-overflow {
-		--itemWidth: 220px;
-		--gridGap: 10px;
-		--linkActionIcon: '⤢';
-		--itemRounding: 6px;
-		margin: auto;
-		display: grid;
-		grid-gap: var(--gridGap);
-		grid-template-columns: repeat(auto-fit, minmax(var(--itemWidth), 1fr));
-		grid-auto-flow: dense;		
 	}	
-
-	@media (max-width: 600px)  {
-		
-		.grid-overflow {
-			grid-gap: calc(var(--gridGap) * 0.66);			
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-
-	.grid-overflow > .gridItem {		
-		padding-bottom: 100%;
-		height: 0;
-		position: relative;		
-		box-sizing: border-box;
-		overflow: hidden;		
-		display: block;
-		border-radius: var(--itemRounding);
-	}
-
-	.grid-overflow > .gridItem > * {	
-		position: absolute;		
-		top: 0;
-		left: 0;		
-		width: 100%;
-		height: 100%;		
-		object-fit: cover;
-		box-sizing: border-box;
-	}
-
-	.grid-overflow > .gridItem > .caption {	
-		background-color: rgba(0, 0, 0, 0.5);
-		top: auto;
-		left: auto;
-		bottom: 0;
-		right: 0;
-		height: auto;
-		color: white;
-		box-sizing: border-box;
-		line-height: 1.33em;
-		padding: 0.15rem 1rem;
-		width: auto;
-		text-align: center;
-	}
-
-	.grid-overflow > .gridItem.panorama {
-		grid-column: span 2;
-		padding-bottom: calc(50% -  var(--gridGap) / 2);
-	}
-
-	.grid-overflow > .gridItem.vertigo {		
-		grid-row: span 2;
-		padding-bottom: calc(200% +  var(--gridGap));
-	}
-	.grid-overflow > .gridItem.VIP {		
-		grid-column: span 2;
-		grid-row: span 2;		
-	}
-
-/* adding » icon */
-
-.grid-overflow.actionIcon > a.gridItem::after {
-    content: var(--linkActionIcon);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-    font-size: 120%;
-	background-color: black;
-	border-radius:3px;
-    line-height: 0.6em;
-    font-family: sans-serif;
-    opacity: 0.5;
-    text-shadow: 0 0 3px #000000, 0 0 1px #000000, 0 0 2px #000000, 0 0 2px #000000, 0 0 1px #000000;
-}
-
-.grid-overflow.actionIcon > a.gridItem:hover:after {
-    opacity: 0.88;
-}	
-
-	/* 3D anim effect */
-
-
-/* transition definition */
-
-.grid-overflow.fx3D > .gridItem, .grid-overflow.fx3D > .gridItem > *, .grid-overflow.fx3D > .gridItem::before, .grid-overflow.fx3D > .gridItem::after  {
-    transition: all 0.12s ease-in;
-}
-
-.grid-overflow.fx3D  > .gridItem:hover, .grid-overflow.fx3D > .gridItem:hover > *, .grid-overflow.fx3D > .gridItem:hover::before, .grid-overflow.fx3D > .gridItem:hover:after {
-    transition: all 0.25s ease;
-}
-
-/* hover definition - skew and shadow */
-
-.grid-overflow.fx3D  > .gridItem:hover {
-    box-shadow: 4px 6px 13px 1px rgba(13, 13, 13, 0.73);
-    transform: skew(-2deg, -2deg) scale(0.965, 0.965);
-    background: rgb(69, 69, 69);    
-}
-
-.grid-overflow.fx3D > .gridItem:hover > * {
-    opacity: 1;
-}
-
-/* gradient overlay imitates a light reflection */
-
-.grid-overflow.fx3D > .gridItem::before {
-    content: '';
-    position: absolute;
-    transform: translate(-30%,-30%);
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background: none;
-}
-
-.grid-overflow.fx3D > .gridItem:hover::before  {
-    background: linear-gradient(155deg, rgba(191,252,255,0.33) 0%,rgba(212,253,255,0.22) 23%,rgba(216,253,255,0) 36%);    
-    transform: translate(-1%,-1%);
-}
-
-
-	
- /* --------------------------------------------------- */
-
-
+ 
 .grid-overflow {
 		--gridGap: 10px;	
 		--itemWidth: 210px;
@@ -202,26 +63,6 @@
 	
 
 </div>
-
-	<!-- div class="grid-overflow fx3D">
-	<a href="#"><img src="1920x1080-2812965-railway-train-station-painting-steam-locomotive-train-vintage-classic-art-signs___retro-vintage-wallpapers.jpg"></a>
-	<a href="#"><img src="flor.jpg"></a>
-	<a href="#" ><img src="WP_20150806_17_59_19_Pro[1].jpg">
-	<a href="#" class="panorama"><img src="adrenalin.jpg" ></a>	
-	<a href="#" class="vertigo"><img src="meshify.jpeg"></a>
-	<a href="#" ><img src="IMG_20181003_113604.jpg"></a>
-	<a href="#" class="vertigo"><img src="meshify-c.jpg"></a>	
-	<a href="#" class="VIP"><img src="najednom.jpg"></a>	
-	<a href="#" class="panorama"><img src="nasiroko-bez-mlhy3.jpg"></a>
-	
-	<a href="#"><img src="namrzle-kmeny.jpg"></a>
-	<a href="#"><img src="omrzly-podzim.jpg"></a>
-	<a href="#"><img src="urbex-map.jpg"></a>
-	<a href="#"><img src="vpodchodu.jpg"></a>
-	
-</div>
-
-<br><br><br><br><br><br><br-->
 
 </body>
 </html>

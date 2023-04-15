@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +11,7 @@
       body {
         padding: 0;
         margin: 0;
+        min-height: 100vh;
         background-image: linear-gradient(to bottom, rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),
           url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
       }
@@ -23,7 +25,7 @@
       }
 
       #SSG1 p.title a,
-      #SSG1 p.uwtitle a {        
+      #SSG1 p.uwtitle a {
         text-decoration-color: #ffffff7a;
         text-underline-offset: 2px;
         font-style: italic;
@@ -63,9 +65,10 @@
 
       .gridOverflow {
         --gridGap: 10px;
-        --itemWidth: 210px;
+        --itemMinWidth: 210px;
         --itemRounding: 3px;
         --linkActionIcon: "⤢";
+        --mobileRowItemsCount: 2;
       }
     </style>
   </head>
@@ -118,7 +121,7 @@
           ><img src="https://www.faroeislands.io/photos/saksun-sheep.jpg"
         /></a>
 
-        <a href="https://www.faroeislands.io/" class="go_gridItem go_gridItem-panorama go_gridItem-centered"
+        <a href="https://www.flor.cz/gridOverflow/" class="go_gridItem go_gridItem-panorama go_gridItem-centered"
           ><div class="heading">
             <div>
               <h1># Grid Overflow</h1>

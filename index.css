@@ -1,0 +1,52 @@
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),
+    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
+}
+main {
+  max-width: 880px;
+  margin: auto;
+  padding: 3vw;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  line-height: 1.33em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+#SSG1 p.title a,
+#SSG1 p.uwtitle a {
+  text-decoration-color: #73ccff7a;
+  text-underline-offset: 2px;
+  font-style: italic;
+  color: rgb(179, 183, 190);
+}
+
+.info {
+  background-color: #750015;
+  margin: 0;
+}
+.info span::first-letter {
+  font-size: 180%;
+  font-family: serif;
+}
+
+.heading {
+  margin: 0;
+  background-color: rgb(47, 54, 63);
+  text-align: center;
+}
+
+.heading h1 {
+  font-size: 222%;
+  color: rgb(255, 255, 255);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+}
+
+.heading p {
+  color: white;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.88);
+}

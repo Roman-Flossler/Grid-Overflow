@@ -1,4 +1,7 @@
-/* ---------- Grid Overflow - grid styles ---------- */
+/*!  
+    Grid Overflow ver: 1.0.0 -  https://roman-flossler.github.io/StoryShowGallery/  
+    Copyright (c) 2023 Roman Flössler - Grid Overflow is licensed under MIT license 
+1*/
 
 .gridOverflow {
   --itemMinWidth: 220px;

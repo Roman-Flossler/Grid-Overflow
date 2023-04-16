@@ -1,10 +1,15 @@
 {
   "name": "grid-overflow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Grid overflow creates responsive grid CSS layout, where grid items can be given vertigo, panorama or VIP class to overflow into the next cell.",
-  "main": "GridOverflow3D.css",
+  "main": "./src/GridOverflow3D.css",
+  "homepage": "https://www.flor.cz/gridOverflow/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roman-Flossler/Grid-Overflow.git"
   },
   "keywords": [
     "CSS",

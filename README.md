@@ -1,10 +1,10 @@
 # Grid Overflow - responsive CSS grid layout
 
-CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable by CSS variables.
+CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable via CSS variables.
 
 Grid overflow crea­tes respon­sive square grid, where grid items can be given vertigo, pa­no­rama or VIP class to set their over­flow into the next cell.
 
-![Grid Overflow example](https://www.flor.cz/gridOverflow/gridOverflow.jpg)
+![Grid Overflow example](https://raw.githubusercontent.com/Roman-Flossler/Grid-Overflow/main/gridOverflow.jpg)
 
 .
 

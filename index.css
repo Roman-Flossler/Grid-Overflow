@@ -14,12 +14,8 @@ main {
   color: rgba(255, 255, 255, 0.88);
 }
 
-#SSG1 p.title a,
-#SSG1 p.uwtitle a {
-  text-decoration-color: #73ccff7a;
-  text-underline-offset: 2px;
-  font-style: italic;
-  color: rgb(179, 183, 190);
+.go_gridItem {
+  box-shadow: 0 0 10px #000000;
 }
 
 .info {

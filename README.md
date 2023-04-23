@@ -2,13 +2,15 @@
 
 CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable via CSS variables.
 
-Grid overflow crea­tes respon­sive square grid, where grid items can be given vertigo, pa­no­rama or VIP class to set their over­flow into the next cell.
+Grid overflow crea­tes respon­sive grid, where grid items can be given vertigo, pa­no­rama or VIP class to set their over­flow into the next cell.
+
+You can set the aspect ratio of grid items. Images within grid items are resized and cropped to fit the format.
 
 ![Grid Overflow example](https://raw.githubusercontent.com/Roman-Flossler/Grid-Overflow/main/gridOverflow.jpg)
 
 .
 
-You can try this example and view its source code at https://www.flor.cz/gridOverflow 
+You can try this example and view its source code at https://www.flor.cz/gridOverflow
 
 # Implementation
 
@@ -21,28 +23,28 @@ import Grid Overflow CSS
 Create some parent element, its children with content and add neccessary classes:
 
 ```html
-<!-- parent grid element - gridOverflow class creates responsive square grid from grid's direct children (items) -->
+<!-- parent grid element - gridOverflow class creates responsive grid from grid's direct children (items) -->
 <!-- go-3Dfx class adds to each grid item 3D animated effect on mouse over  -->
 <!-- go-actionIcon class adds to top right corner of grid items some symbol, but only if grid item is <a> tag  -->
 <div class="gridOverflow go-3Dfx go-actionIcon">
 
-  <!-- grid item (grid's direct child) should have go_gridItem class. Grid item has square form (1x1) -->
+  <!-- grid item (grid's direct child) should have go_gridItem class. Grid element has square form (1x1) by default. -->
   <a class="go_gridItem href="someURL">
     grid item content - thumbnail image <img>, text <p>
     <!-- go_caption class is for creating captions inside grid items -->
     <span class="go_caption">some caption</span>
   </a>
 
-  <!-- go_gridItem-panorama class creates a grid item in the form of a vertical rectangle (1x2) -->
+  <!-- go_gridItem-panorama class creates a grid item in the form of a horizontal rectangle (2x1 by default) -->
   <a class="go_gridItem go_gridItem-panorama" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
-  <!-- go_gridItem-panorama class creates a grid item in the form of a horizontal rectangle (2x1) -->
-  <a class="go_gridItem go_gridItem-panorama" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
+  <!-- go_gridItem-vertigo class creates a grid item in the form of a vertical rectangle (2x1 by default) -->
+  <a class="go_gridItem go_gridItem-vertigo" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
-  <!-- go_gridItem-VIP class creates a grid item in the form of a large square (2x2) -->
+  <!-- go_gridItem-VIP class creates a grid item in the form of a large square (1x1) by default -->
   <a class="go_gridItem go_gridItem-VIP" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
-  <!-- if grid item isn't <a> tag, there will be no symbol in top right corner  -->
+  <!-- go_gridItem-centered centers the content -->
   <div class="go_gridItem go_gridItem-centered" href="someURL"> centered content - typically some text </div>
 </div>
 ```
@@ -57,6 +59,7 @@ Basic parameters of Grid Overflow can be set via CSS parameters
 .gridOverflow {
   --gridGap: 10px;
   --itemMinWidth: 210px;
+  --itemAspectRatio: 1;
   --itemRounding: 3px;
   --linkActionIcon: "⤢";
   --mobileRowItemsCount: 2;
@@ -67,6 +70,7 @@ Basic parameters of Grid Overflow can be set via CSS parameters
 
 In resolutions above 600px row items count is determined by --itemMinWidth.
 
-If the parent element of the gridOverflow has width set to 700px, grid will have 3 item in the row - 3 x 210px + 2 * 10px for grid gap.
+If the parent element of the gridOverflow has width set to 700px, grid will have 3 item in the row - 3 x 210px + 2 \* 10px for grid gap.
 Items will expand to fill whole width of the parent element.
 
+--itemAspectRatio defines the height/width ratio of a grid item. A value of 0.5 creates a horizontal rectangle - the height will be half the width. A value of 1 creates a square shaped item.

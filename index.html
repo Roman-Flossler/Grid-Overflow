@@ -15,9 +15,10 @@
       /* configuration of the Grid Overflow  */
 
       .gridOverflow {
-        --gridGap: 10px;
+        --gridGap: 0px;
         --itemMinWidth: 210px;
-        --itemRounding: 3px;
+        --itemAspectRatio: 1;
+        --itemRounding: 6px;
         --linkActionIcon: "⤢";
         --mobileRowItemsCount: 2;
       }
@@ -101,10 +102,9 @@
       <script>
         SSG.cfg.globalAuthorCaption =
           "<a href='https://roman-flossler.github.io/StoryShowGallery' target='_blank'>Story Show Gallery</a>";
-        // SSG.cfg.watermarkText = "🐑 Faroe&#8202;Islands&#8202;.io";
-        SSG.cfg.watermarkImage = "https://i.gifer.com/origin/fd/fdf70f5f4989f9c08f033da50c38170e_w200.gif";
+        SSG.cfg.watermarkText = "🐑 Faroe&#8202;Islands&#8202;.io";
         SSG.cfg.watermarkFontSize = 18;
-        SSG.cfg.watermarkOffsetX = 0;
+        SSG.cfg.watermarkOffsetX = 98;
         SSG.cfg.watermarkOpacity = 0.58;
       </script>
     </main>

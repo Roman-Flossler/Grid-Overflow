@@ -2,20 +2,37 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),
-    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
 }
 main {
-  max-width: 880px;
-  margin: auto;
-  padding: 3vw;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   line-height: 1.33em;
   color: rgba(255, 255, 255, 0.88);
+  background-color: #f1f1f1;
+  background-image: url(https://roman-flossler.github.io/StoryShowGallery/img/bg.png);
+  background-blend-mode: multiply;
 }
 
-.go_gridItem {
-  box-shadow: 0 0 10px #000000;
+section {
+  max-width: 880px;
+  margin: auto;
+  padding: 3vw;
+  padding-bottom: 6.6rem;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 66px;
+  color: #8690a3;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+}
+
+.faroeTexture {
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),
+    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
+  background-image: linear-gradient(to bottom, rgb(226 229 237 / 96%) 10%, hsl(33.23deg 14% 86% / 78%) 100%),
+    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
+  box-shadow: -6px 0px 39px #a9a384;
 }
 
 .info {

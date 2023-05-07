@@ -1,10 +1,10 @@
 # Grid Overflow - responsive CSS grid layout
 
-CSS layout based on CSS grid with optional animated 3D effect, utility classes and adjustable via CSS variables.
+A pure CSS solution for masonry layout and grid layout, where grid items can be given vertigo, pa­no­rama or VIP classes to set their over­flow into the next cell.
 
-Grid overflow crea­tes respon­sive grid, where grid items can be given vertigo, pa­no­rama or VIP class to set their over­flow into the next cell.
+Responsive CSS layout based on CSS grid + flex with optional animated 3D effect, utility classes and adjustable via CSS variables.
 
-You can set the aspect ratio of grid items. Images within grid items are resized and cropped to fit the format.
+You can use images of any size, they will be automatically adjusted to fit the grid according to the CSS variables settings.
 
 ![Grid Overflow example](https://raw.githubusercontent.com/Roman-Flossler/Grid-Overflow/main/gridOverflow.jpg)
 
@@ -28,24 +28,25 @@ Create some parent element, its children with content and add neccessary classes
 <!-- go-actionIcon class adds to top right corner of grid items some symbol, but only if grid item is <a> tag  -->
 <div class="gridOverflow go-3Dfx go-actionIcon">
 
-  <!-- grid item (grid's direct child) should have go_gridItem class. Grid element has square form (1x1) by default. -->
+  <!-- grid item (grid's direct child) must have go_gridItem class. Grid element has square form by default. -->
   <a class="go_gridItem href="someURL">
     grid item content - thumbnail image <img>, text <p>
     <!-- go_caption class is for creating captions inside grid items -->
-    <span class="go_caption">some caption</span>
+    <!-- go_caption-full creates caption with 100% width of the grid item -->
+    <span class="go_caption go_caption-full">some caption</span>
   </a>
 
-  <!-- go_gridItem-panorama class creates a grid item in the form of a horizontal rectangle (2x1 by default) -->
+  <!-- go_gridItem-panorama class creates a grid item in the form of a horizontal rectangle (2x1 cells) -->
   <a class="go_gridItem go_gridItem-panorama" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
-  <!-- go_gridItem-vertigo class creates a grid item in the form of a vertical rectangle (2x1 by default) -->
+  <!-- go_gridItem-vertigo class creates a grid item in the form of a vertical rectangle (1x2 cells) -->
   <a class="go_gridItem go_gridItem-vertigo" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
-  <!-- go_gridItem-VIP class creates a grid item in the form of a large square (1x1) by default -->
+  <!-- go_gridItem-VIP class creates a grid item in the form of a large square (2x2 cells) -->
   <a class="go_gridItem go_gridItem-VIP" href="someURL"> grid item content - thumbnail image <img>, text <p> </a>
 
   <!-- go_gridItem-centered centers the content -->
-  <div class="go_gridItem go_gridItem-centered" href="someURL"> centered content - typically some text </div>
+  <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p></div>
 </div>
 ```
 
@@ -63,6 +64,8 @@ Basic parameters of Grid Overflow can be set via CSS parameters
   --itemRounding: 3px;
   --linkActionIcon: "⤢";
   --mobileRowItemsCount: 2;
+
+  --masonryItemHeight: 180px;
 }
 ```
 
@@ -73,4 +76,37 @@ In resolutions above 600px row items count is determined by --itemMinWidth.
 If the parent element of the gridOverflow has width set to 700px, grid will have 3 item in the row - 3 x 210px + 2 \* 10px for grid gap.
 Items will expand to fill whole width of the parent element.
 
+If you set --itemMinWidth to 30%, there will be three items in the row regardless of the grid width. The remaining 10% is for the gap between items.
+
 --itemAspectRatio defines the height/width ratio of a grid item. A value of 0.5 creates a horizontal rectangle - the height will be half the width. A value of 1 creates a square shaped item.
+
+# Masonry mode
+
+Simply add the go-masonry class to the parent grid element to enable masonry mode. You can also specify --masonryItemHeight.
+
+```html
+<!-- go-masonry class turns the grid layout into masonry mode  -->
+<div class="gridOverflow go-masonry go-3Dfx go-actionIcon">
+
+  <!-- grid item (grid's direct child) must have go_gridItem class.  -->
+  <a class="go_gridItem href="someURL">
+    <!-- length of the grid item is variable and depends on the image size, height depends on the --masonryItemHeight -->
+    <img src="someURL" />
+  </a>
+
+  <a class="go_gridItem href="someURL">
+    <img src="someURL" />
+    <!-- go_caption class is for creating captions inside grid items -->
+    <!-- go_caption-full creates caption with 100% width of the grid item -->
+    <span class="go_caption go_caption-full">some caption</span>
+  </a>
+
+  <!-- go_gridItem-centered centers the content, its length depends on --itemMinWidth. -->
+  <!-- Also go_gridItem-noImage class can be used for a text content (no centering)  -->
+  <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
+</div>
+```
+
+In masonry mode, the size of the grid items is determined by the aspect ratio of the images, so the Vertigo, Panorama and VIP classes have no effect. As well as --itemAspectRatio and --mobileRowItemsCount.
+
+The CSS variable --itemMinWidth only affects grid items with go_gridItem-centered or go_gridItem-noImage classes. Grid items where the text or mixed content is supposed.

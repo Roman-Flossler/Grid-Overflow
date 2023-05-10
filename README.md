@@ -52,7 +52,7 @@ Create some parent element, its children with content and add neccessary classes
 
 GridOverflow element will expand to fill 100% width of its parent element.
 
-GridOverflow class has grid-auto-flow se to **dense**, it means that grid items may appear out of order to fill in holes left by larger items. It happens only if you use panorama, vertigo or VIP class. Without this classes each grid item will be square of the same size and there will be no problem to keep correct order of items.
+GridOverflow class has grid-auto-flow se to **dense**, it means that grid items may appear out of order to fill in holes left by larger items. It happens only if you use panorama, vertigo or VIP class. Without this classes each grid item will have the same size and there will be no problem to keep correct order of items.
 
 Basic parameters of Grid Overflow can be set via CSS parameters
 
@@ -63,20 +63,18 @@ Basic parameters of Grid Overflow can be set via CSS parameters
   --itemAspectRatio: 1;
   --itemRounding: 3px;
   --linkActionIcon: "⤢";
-  --mobileRowItemsCount: 2;
 
   --masonryItemHeight: 180px;
 }
 ```
 
---mobileRowItemsCount defines grid's row items count in resolutions under 600px
+The number of columns in the grid is determined by --itemMinWidth, but the minimum is two.
 
-In resolutions above 600px row items count is determined by --itemMinWidth.
+If the parent element of the gridOverflow has a width of 700px, the grid will have 3 columns - 3 \* 210px + 2 \* 10px for grid gap (numbers are defined by the CSS variables).
 
-If the parent element of the gridOverflow has width set to 700px, grid will have 3 item in the row - 3 x 210px + 2 \* 10px for grid gap.
-Items will expand to fill whole width of the parent element.
+Items will expand to fill the entire width of the parent element.
 
-If you set --itemMinWidth to 30%, there will be three items in the row regardless of the grid width. The remaining 10% is for the gap between items.
+If you set --itemMinWidth to 30%, there will be three columns regardless of the grid width. The remaining 10% is for the gap between items.
 
 --itemAspectRatio defines the height/width ratio of a grid item. A value of 0.5 creates a horizontal rectangle - the height will be half the width. A value of 1 creates a square shaped item.
 
@@ -107,6 +105,8 @@ Simply add the go-masonry class to the parent grid element to enable masonry mod
 </div>
 ```
 
-In masonry mode, the size of the grid items is determined by the aspect ratio of the images, so the Vertigo, Panorama and VIP classes have no effect. As well as --itemAspectRatio and --mobileRowItemsCount.
+In masonry mode, the size of the grid items is determined by the aspect ratio of the images, so the Vertigo, Panorama and VIP classes have no effect. As well as --itemAspectRatio.
 
 The CSS variable --itemMinWidth only affects grid items with go_gridItem-centered or go_gridItem-noImage classes. Grid items where the text or mixed content is supposed.
+
+The minimum number of columns in the masonry mode is one.

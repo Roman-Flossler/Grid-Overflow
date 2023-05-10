@@ -1,6 +1,6 @@
 {
   "name": "grid-overflow",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A pure CSS solution for masonry layout and grid layout, where grid items can be given vertigo, panorama or VIP class to overflow into the next cell.",
   "main": "./src/GridOverflow3D.css",
   "homepage": "https://www.flor.cz/gridOverflow/",
@@ -13,9 +13,14 @@
   },
   "keywords": [
     "CSS",
+    "grid",
+    "masonry",
+    "thumbnails",
+    "responsive",
     "layout",
     "gallery",
-    "grid"
+    "css-grid",
+    "masonry-gallery"
   ],
   "author": "Roman Flössler",
   "license": "MIT"

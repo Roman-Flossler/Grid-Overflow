@@ -7,22 +7,14 @@
   --itemMinWidth: 200px;
   --itemAspectRatio: 1;
   --gridGap: 10px;
-  --mobileRowItemsCount: 2;
   --linkActionIcon: "⤢";
   --itemRounding: 6px;
   --masonryItemHeight: 180px;
   margin: auto;
   display: grid;
   grid-gap: var(--gridGap);
-  grid-template-columns: repeat(auto-fit, minmax(var(--itemMinWidth), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(calc(50% - var(--gridGap)), var(--itemMinWidth)), 1fr));
   grid-auto-flow: dense;
-}
-
-@media (max-width: 600px) {
-  .gridOverflow {
-    grid-gap: calc(var(--gridGap) * 0.75);
-    grid-template-columns: repeat(var(--mobileRowItemsCount), 1fr);
-  }
 }
 
 .go_gridItem {

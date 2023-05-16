@@ -12,7 +12,6 @@ You can use images of any size, they will be automatically adjusted to fit the g
 
 😎 You can try this example and view its source code at https://www.flor.cz/gridOverflow
 
-
 # Implementation
 
 import Grid Overflow CSS
@@ -116,15 +115,17 @@ The CSS variable **--itemMinWidth** only affects grid items with go_gridItem-cen
 
 The minimum number of columns in the masonry mode is one.
 
-**warning**: Unfortunately, Apple's Safari is a crappy browser. Safari cannot properly display the -webkit-fill-available value of thumbnails width, you need to use Javascript. 
+**BUMMER**: Unfortunately, Apple's Safari is a crappy browser. Safari cannot properly display the width of thumbnails (width: -webkit-fill-available), you need to use Javascript.
 This script sets the width of the thumbnails to auto and then switches them back to -webkit-fill-available. This toggling back and forth forces Safari to display the masonry layout correctly.
 
 ```html
 <script>
   if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-    document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
-      setTimeout(() => (el.style.width = "auto"), 100);
-      setTimeout(() => (el.style.width = "-webkit-fill-available"), 300);
+    window.addEventListener("load", (event) => {
+      document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
+        setTimeout(() => (el.style.width = "auto"), 100);
+        setTimeout(() => (el.style.width = "-webkit-fill-available"), 333);
+      });
     });
   }
 </script>

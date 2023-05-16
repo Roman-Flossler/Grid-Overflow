@@ -215,15 +215,17 @@
         SSG.cfg.watermarkOffsetX = 98;
         SSG.cfg.watermarkOpacity = 0.58;
       </script>
-      <!-- Unfortunately, Apple's Safari is a crappy browser. 
-        Safari cannot properly display the -webkit-fill-available value of thumbnails width, you need to use Javascript. 
+      <!-- BUMMER: Unfortunately, Apple's Safari is a crappy browser. 
+        Safari cannot properly display the width of thumbnails (width: -webkit-fill-available), you need to use Javascript.
         This script sets the width of the thumbnails to auto and then switches them back to -webkit-fill-available. 
         This toggling back and forth forces Safari to display the masonry layout correctly. -->
       <script>
         if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-          document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
-            setTimeout(() => (el.style.width = "auto"), 100);
-            setTimeout(() => (el.style.width = "-webkit-fill-available"), 300);
+          window.addEventListener("load", (event) => {
+            document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
+              setTimeout(() => (el.style.width = "auto"), 100);
+              setTimeout(() => (el.style.width = "-webkit-fill-available"), 333);
+            });
           });
         }
       </script>

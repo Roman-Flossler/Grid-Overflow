@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Grid Overflow + Story Show Gallery lightbox</title>
     <!-- CSS styles of Grid Overflow - only file that is needed to import -->
-    <link rel="stylesheet" href="src/GridOverflow3D.css" />
+    <link rel="stylesheet" href="src/GridOverflow3D.min.css" />
     <!-- Story Show Gallery on click opens images into full screen lightbox -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -119,6 +119,14 @@
               </p>
             </div>
           </div>
+          <p class="codeLink">
+            <span>Code example:</span>
+            <a
+              href="https://codesandbox.io/s/gallery-thumbnails-in-css-grid-layout-full-screen-lightbox-8u6ybo"
+              target="_blank"
+              >Codesandbox.io - Grid Overflow</a
+            >
+          </p>
         </section>
       </div>
 
@@ -188,6 +196,14 @@
             </p>
           </div>
         </div>
+        <p class="codeLink">
+          <span>Code example:</span>
+          <a
+            href="https://codesandbox.io/s/masonry-css-layout-of-gallery-thumbnails-full-screen-lightbox-wkzsvo"
+            target="_blank"
+            >Codesandbox.io - Grid Overflow Masonry</a
+          >
+        </p>
       </section>
 
       <script src="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.js"></script>
@@ -198,6 +214,18 @@
         SSG.cfg.watermarkFontSize = 18;
         SSG.cfg.watermarkOffsetX = 98;
         SSG.cfg.watermarkOpacity = 0.58;
+      </script>
+      <!-- Unfortunately, Apple's Safari is a crappy browser. 
+        Safari cannot properly display the -webkit-fill-available value of thumbnails width, you need to use Javascript. 
+        This script sets the width of the thumbnails to auto and then switches them back to -webkit-fill-available. 
+        This toggling back and forth forces Safari to display the masonry layout correctly. -->
+      <script>
+        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+          document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
+            setTimeout(() => (el.style.width = "auto"), 100);
+            setTimeout(() => (el.style.width = "-webkit-fill-available"), 300);
+          });
+        }
       </script>
     </main>
   </body>

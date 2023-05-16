@@ -1,7 +1,7 @@
 /*!  
-    Grid Overflow ver: 1.2.0 -  https://github.com/Roman-Flossler/
+    Grid Overflow ver: 1.2.2 -  https://github.com/Roman-Flossler/
     Copyright (c) 2023 Roman Flössler - Grid Overflow is licensed under MIT license 
-1*/
+!*/
 
 .gridOverflow {
   --itemMinWidth: 200px;
@@ -99,6 +99,7 @@
 
 .go-masonry .go_gridItem > * {
   position: static;
+  width: -webkit-fill-available;
 }
 
 .go-masonry .go_gridItem-centered,

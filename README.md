@@ -10,7 +10,8 @@ You can use images of any size, they will be automatically adjusted to fit the g
 
 .
 
-You can try this example and view its source code at https://www.flor.cz/gridOverflow
+😎 You can try this example and view its source code at https://www.flor.cz/gridOverflow
+
 
 # Implementation
 
@@ -50,11 +51,13 @@ Create some parent element, its children with content and add neccessary classes
 </div>
 ```
 
+😎 Code example: https://codesandbox.io/s/gallery-thumbnails-in-css-grid-layout-full-screen-lightbox-8u6ybo
+
 GridOverflow element will expand to fill 100% width of its parent element.
 
-GridOverflow class has grid-auto-flow se to **dense**, it means that grid items may appear out of order to fill in holes left by larger items. It happens only if you use panorama, vertigo or VIP class. Without this classes each grid item will have the same size and there will be no problem to keep correct order of items.
+GridOverflow class has grid-auto-flow set to **dense**, it means that grid items may appear out of order to fill in holes left by larger items. It happens only if you use panorama, vertigo or VIP class. Without this classes each grid item will have the same size and there will be no problem to keep correct order of items.
 
-Basic parameters of Grid Overflow can be set via CSS parameters
+Basic parameters of Grid Overflow can be set via **CSS variables**:
 
 ```css
 .gridOverflow {
@@ -68,19 +71,19 @@ Basic parameters of Grid Overflow can be set via CSS parameters
 }
 ```
 
-The number of columns in the grid is determined by --itemMinWidth, but the minimum is two.
+The number of columns in the grid is determined by **--itemMinWidth**, but the minimum is two.
 
-If the parent element of the gridOverflow has a width of 700px, the grid will have 3 columns - 3 \* 210px + 2 \* 10px for grid gap (numbers are defined by the CSS variables).
+If the parent element of the gridOverflow has a width of 700px, the grid will have 3 columns: 3 \* 210px + 2 \* 10px for the grid gap (numbers are defined by the CSS variables).
 
 Items will expand to fill the entire width of the parent element.
 
 If you set --itemMinWidth to 30%, there will be three columns regardless of the grid width. The remaining 10% is for the gap between items.
 
---itemAspectRatio defines the height/width ratio of a grid item. A value of 0.5 creates a horizontal rectangle - the height will be half the width. A value of 1 creates a square shaped item.
+**--itemAspectRatio** defines the height/width ratio of a grid item. A value of 0.5 creates a horizontal rectangle - the height will be half the width. A value of 1 creates a square shaped item.
 
 # Masonry mode
 
-Simply add the go-masonry class to the parent grid element to enable masonry mode. You can also specify --masonryItemHeight.
+Simply add the go-masonry class to the parent grid element to enable masonry mode. You can also specify **--masonryItemHeight**.
 
 ```html
 <!-- go-masonry class turns the grid layout into masonry mode  -->
@@ -105,8 +108,24 @@ Simply add the go-masonry class to the parent grid element to enable masonry mod
 </div>
 ```
 
+😎 Code example: https://codesandbox.io/s/masonry-css-layout-of-gallery-thumbnails-full-screen-lightbox-wkzsvo
+
 In masonry mode, the size of the grid items is determined by the aspect ratio of the images, so the Vertigo, Panorama and VIP classes have no effect. As well as --itemAspectRatio.
 
-The CSS variable --itemMinWidth only affects grid items with go_gridItem-centered or go_gridItem-noImage classes. Grid items where the text or mixed content is supposed.
+The CSS variable **--itemMinWidth** only affects grid items with go_gridItem-centered or go_gridItem-noImage classes. Grid items where the text or mixed content is supposed.
 
 The minimum number of columns in the masonry mode is one.
+
+**warning**: Unfortunately, Apple's Safari is a crappy browser. Safari cannot properly display the -webkit-fill-available value of thumbnails width, you need to use Javascript. 
+This script sets the width of the thumbnails to auto and then switches them back to -webkit-fill-available. This toggling back and forth forces Safari to display the masonry layout correctly.
+
+```html
+<script>
+  if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+    document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
+      setTimeout(() => (el.style.width = "auto"), 100);
+      setTimeout(() => (el.style.width = "-webkit-fill-available"), 300);
+    });
+  }
+</script>
+```

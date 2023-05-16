@@ -16,7 +16,7 @@ section {
   max-width: 880px;
   margin: auto;
   padding: 3vw;
-  padding-bottom: 6.6rem;
+  padding-bottom: 4.4rem;
 }
 
 section h2 {
@@ -62,4 +62,22 @@ section h2 {
   line-height: 1.5em;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.88);
+}
+
+.codeLink {
+  color: black;
+  text-align: center;
+  margin-top: 3rem;
+  text-shadow: 0 0 8px white, 0 0 18px white;
+  font-size: 103%;
+}
+
+.codeLink a {
+  color: #005075;
+  text-decoration-style: solid;
+  text-underline-offset: 3px;
+}
+.codeLink a:hover {
+  text-decoration-style: wavy;
+  text-underline-offset: 2px;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Grid Overflow + Story Show Gallery lightbox</title>
     <!-- CSS styles of Grid Overflow - only file that is needed to import -->
-    <link rel="stylesheet" href="src/GridOverflow3D.min.css" />
+    <link rel="stylesheet" href="src/GridOverflow3D.css" />
     <!-- Story Show Gallery on click opens images into full screen lightbox -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -47,7 +47,7 @@
       <div class="faroeTexture">
         <section>
           <!-- ssg, fs and ssgdim are classes of Story Show Gallery  -->
-          <div class="gridOverflow go-3Dfx go-actionIcon ssg fs ssgdim">
+          <div class="gridOverflow go-3Dfx go-actionIcon ssg fs">
             <a href="sorvagsvatn-lake.jpg" class="go_gridItem go_gridItem-vertigo">
               <img
                 src="sorvagsvatn-lake.jpg"
@@ -132,7 +132,7 @@
 
       <section style="max-width: 1088px">
         <h2>Masonry Mode:</h2>
-        <div class="gridOverflow go-masonry go-3Dfx go-actionIcon ssg fs ssgdim">
+        <div class="gridOverflow go-masonry go-3Dfx go-actionIcon ssg fs">
           <a href="sorvagsvatn-lake.jpg" class="go_gridItem">
             <img
               src="sorvagsvatn-lake.jpg"
@@ -214,20 +214,7 @@
         SSG.cfg.watermarkFontSize = 18;
         SSG.cfg.watermarkOffsetX = 98;
         SSG.cfg.watermarkOpacity = 0.58;
-      </script>
-      <!-- BUMMER: Unfortunately, Apple's Safari is a crappy browser. 
-        Safari cannot properly display the width of thumbnails (width: -webkit-fill-available), you need to use Javascript.
-        This script sets the width of the thumbnails to auto and then switches them back to -webkit-fill-available. 
-        This toggling back and forth forces Safari to display the masonry layout correctly. -->
-      <script>
-        if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-          window.addEventListener("load", (event) => {
-            document.querySelectorAll(".go-masonry .go_gridItem > *").forEach((el) => {
-              setTimeout(() => (el.style.width = "auto"), 100);
-              setTimeout(() => (el.style.width = "-webkit-fill-available"), 333);
-            });
-          });
-        }
+        SSG.cfg.fileToLoad = "https://roman-flossler.github.io/StoryShowGallery/uni.html";
       </script>
     </main>
   </body>

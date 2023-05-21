@@ -1,7 +1,7 @@
 /*!  
-    Grid Overflow ver: 1.2.2 -  https://github.com/Roman-Flossler/
+    Grid Overflow ver: 1.2.3 -  https://github.com/Roman-Flossler/
     Copyright (c) 2023 Roman Flössler - Grid Overflow is licensed under MIT license 
-!*/
+*/
 
 .gridOverflow {
   --itemMinWidth: 200px;
@@ -92,6 +92,7 @@
 
 .go-masonry .go_gridItem {
   padding-bottom: 0;
+  display: flex;
   flex-grow: 1;
   height: var(--masonryItemHeight);
   flex-basis: fit-content;
@@ -99,7 +100,8 @@
 
 .go-masonry .go_gridItem > * {
   position: static;
-  width: -webkit-fill-available;
+  flex-grow: 1;
+  width: auto;
 }
 
 .go-masonry .go_gridItem-centered,

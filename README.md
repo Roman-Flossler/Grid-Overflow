@@ -6,7 +6,7 @@ Responsive CSS layout based on CSS grid + flex with optional animated 3D effect,
 
 You can use images of any size, they will be automatically adjusted to fit the grid according to the CSS variables settings.
 
-![Grid Overflow example](https://raw.githubusercontent.com/Roman-Flossler/Grid-Overflow/main/gridOverflow.jpg)
+![Grid Overflow example](https://roman-flossler.github.io/StoryShowGallery/img/gridOverflow.jpg)
 
 .
 
@@ -17,13 +17,13 @@ You can use images of any size, they will be automatically adjusted to fit the g
 import Grid Overflow CSS
 
 ```html
-<link rel="stylesheet" href="path/to/GridOverflow3D.css" />
+<link rel="stylesheet" href="path/to/GridOverflow3D.min.css" />
 ```
 
 Create some parent element, its children with content and add neccessary classes:
 
 ```html
-<!-- parent grid element - gridOverflow class creates responsive grid from grid's direct children (items) -->
+<!-- gridOverflow class is required - creates responsive grid from grid's direct children (items) -->
 <!-- go-3Dfx class adds to each grid item 3D animated effect on mouse over  -->
 <!-- go-actionIcon class adds to top right corner of grid items some symbol, but only if grid item is <a> tag  -->
 <div class="gridOverflow go-3Dfx go-actionIcon">
@@ -85,8 +85,11 @@ If you set --itemMinWidth to 30%, there will be three columns regardless of the 
 Simply add the go-masonry class to the parent grid element to enable masonry mode. You can also specify **--masonryItemHeight**.
 
 ```html
+<!-- gridOverflow is required - creates the grid  -->
 <!-- go-masonry class turns the grid layout into masonry mode  -->
-<div class="gridOverflow go-masonry go-3Dfx go-actionIcon">
+<!-- go-zoomFx  class adds to each grid item animated zoom effect on mouse over  -->
+<!-- you can use go-zoomFx and go-3Dfx together, it will make combined effect  -->
+<div class="gridOverflow go-masonry go-zoomFx go-actionIcon">
 
   <!-- grid item (grid's direct child) must have go_gridItem class.  -->
   <a class="go_gridItem href="someURL">

@@ -81,3 +81,32 @@ section h2 {
   text-decoration-style: wavy;
   text-underline-offset: 2px;
 }
+
+::-webkit-scrollbar {
+  background: #046b8d;
+  background: linear-gradient(rgb(165, 0, 55), rgb(0, 138, 180));
+  width: 18px;
+  border-left: 1px solid rgb(224, 224, 224);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(  rgb(224, 42, 103), rgb(87, 192, 224));
+  background-size: 100%;
+  margin-top: 6px;  
+}
+
+::-webkit-scrollbar-button {
+  height: 20px;
+  background: #242d30;
+  color: white;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background: url(https://www.flor.cz/gridOverflow/src/arrow-top.png) no-repeat 3px 0;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background: url(https://www.flor.cz/gridOverflow/src/arrow-bottom.png) no-repeat 3px 0;
+}

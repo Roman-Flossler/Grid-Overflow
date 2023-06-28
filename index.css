@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden !important;
 }
 main {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
@@ -10,6 +11,29 @@ main {
   background-color: #f1f1f1;
   background-image: url(https://roman-flossler.github.io/StoryShowGallery/img/bg.png);
   background-blend-mode: multiply;
+}
+
+.gridTitle, .overflowTitle {
+  position: absolute;
+  font-size: 10vw;
+  transform: rotate(90deg) translate(33%, -80%);
+  transform-origin: 0 0;
+  color: rgb(35 41 59 / 59%);
+  mix-blend-mode: overlay;
+  left: 0;
+  top: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+}
+
+.overflowTitle {
+  transform-origin: 100% 100% 0;
+  transform: rotate(-90deg) translate(0%, 0%);
+  left: auto;
+  right: 0;  
+  font-size: 9vw;
+  overflow: hidden;
+  height: 7.8vw;
 }
 
 section {
@@ -25,12 +49,15 @@ section h2 {
   color: #8690a3;
   line-height: 1em;
   margin-bottom: 0.5em;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.faroeTexture {
-  background-image: linear-gradient(to bottom, rgb(255, 255, 255) 10%, hsla(126, 14%, 86%, 0.822) 100%),
-    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
-  background-image: linear-gradient(to bottom, rgb(226 229 237 / 96%) 10%, hsl(33.23deg 14% 86% / 78%) 100%),
+section.masonry {
+  padding-top: 0;
+}
+
+.faroeTexture {  
+  background-image: linear-gradient(to bottom, rgb(226 229 237 / 96%) 10%, hsl(33.23deg 14% 86% / 81%) 100%),
     url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
   box-shadow: -6px 0px 39px #a9a384;
 }
@@ -82,11 +109,84 @@ section h2 {
   text-underline-offset: 2px;
 }
 
+.codeBlock {
+  display: flex;
+  justify-content: space-around;  
+}
+
+.codeBlock b {
+  display: inline-block;
+  position: relative;
+  transform: rotate(90deg);  
+  margin-inline: -2rem;
+  top: 1rem;
+  font-size: 22px;
+  opacity: 0.8;
+}
+
+.codeBlock .gridgrid b {
+  transform: rotate(-90deg);
+  color: white;
+}
+
+.codeBlock div {
+  flex-grow: 1;  
+}
+
+.codeBlock .gridgrid {
+  background-image: linear-gradient(to bottom, hsl(33.23deg 14% 86% / 81%) 0%, hsl(33.23deg 14% 86% / 81%) 100%),
+  url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);  
+  text-align: right;
+  padding-right: 4rem;  
+  background-position: 83px 18px;  
+}
+
+.codeBlock .gridgrid::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  top: auto;
+  width: 100%;  
+  background-image:  linear-gradient(to top, hsla(40, 15%, 92%, 0.5) 0%, hsla(36, 14%, 86%, 0) 100%);  
+}
+
+.codeBlock .gridgrid span {
+  background-color: rgb(224, 224, 224);
+  padding-inline: 0.5rem ;
+  box-shadow: 0 0 8px white;
+}
+
+.codeBlock pre {
+  margin: 0;
+  font-family: consolas, monospace;
+  color: black;
+  font-size: 15px;
+  margin-left: -2rem;  
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .codeBlock {
+    display: block;
+  }
+
+  .codeBlock .gridgrid {
+    text-align: left;
+  }
+
+  .gridTitle, .overflowTitle {
+    display: none;
+  }
+}
+
 ::-webkit-scrollbar {
   background: #046b8d;
   background: linear-gradient(rgb(165, 0, 55), rgb(0, 138, 180));
   width: 18px;
-  border-left: 1px solid rgb(224, 224, 224);
+  /* border-left: 1px solid rgb(224, 224, 224);  */
 }
 
 ::-webkit-scrollbar-thumb {

@@ -22,7 +22,7 @@
         --linkActionIcon: "⤢";
       }
       .gridOverflow:not(.go-masonry) .go_gridItem {
-        box-shadow: 0 0 10px #000000;
+        box-shadow: 0 0 6px #4d3c32;
       }
 
       .gridOverflow.go-masonry {
@@ -43,6 +43,8 @@
   </head>
 
   <body>
+    <span class="gridTitle">#Grid</span>
+    <span class="overflowTitle">Overflow</span>
     <main>
       <div class="faroeTexture">
         <section>
@@ -129,8 +131,47 @@
           </p>
         </section>
       </div>
+      <div class="codeBlock">
+        <div ><pre class="gridgrid">
+          <b>➜</b>
+          <strong>CSS classes:</strong>
+          <span>gridOverflow go-3Dfx go-actionIcon</span>
 
-      <section style="max-width: 1088px">
+          <strong>CSS variables:</strong>
+          <span>.gridOverflow {</span>
+            <span>--gridGap: 1px;</span>
+            <span>--itemMinWidth: 210px;</span>
+            <span>--itemRounding: 6px;</span>
+            <span>--linkActionIcon: "⤢";</span>
+            <span>--itemAspectRatio: 1;</span>
+          <span>}</span>
+
+
+        </pre></div>
+        <div><pre>
+          <b>➜</b>
+          <strong>CSS classes:</strong>
+          gridOverflow <strong>go-masonry</strong> go-zoomFx go-actionIcon
+        
+          <strong>CSS variables:</strong>
+          .gridOverflow.go-masonry {
+            --gridGap: 10px;
+            --itemMinWidth: 30%;
+            --itemRounding: 25% 88% 10% 88% / 18% 9px 15% 9px;
+            --linkActionIcon: "»";
+            --masonryItemHeight: 200px;
+          }
+
+          @media (max-width: 600px) {
+            .gridOverflow.go-masonry {
+              --itemMinWidth: 45%;
+              --masonryItemHeight: 39vw;
+            }
+          }
+        </pre></div>
+      </div>
+
+      <section class="masonry" style="max-width: 1088px">
         <h2>Masonry Mode:</h2>
         <div class="gridOverflow go-masonry go-zoomFx go-actionIcon ssg fs">
           <a href="sorvagsvatn-lake.jpg" class="go_gridItem">

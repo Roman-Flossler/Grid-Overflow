@@ -21,8 +21,11 @@
         --itemRounding: 6px;
         --linkActionIcon: "⤢";
       }
-      .gridOverflow:not(.go-masonry) .go_gridItem {
-        box-shadow: 0 0 6px #4d3c32;
+      .gridOverflow .go_gridItem {
+        box-shadow: 0 0 3px #00253b;
+      }
+      .gridOverflow.go-masonry .go_gridItem {
+        box-shadow: none;
       }
 
       .gridOverflow.go-masonry {
@@ -82,7 +85,9 @@
               <img src="mykines-lighthouse.jpg" alt="Mykines island - it feels like at the end of the world." />
             </a>
 
-            <a href="mulafossur-panorama.jpg" class="go_gridItem"><img src="mulafossur-panorama.jpg" /></a>
+            <a href="mulafossur-panorama.jpg" data-author="" class="go_gridItem"
+              ><img src="mulafossur-panorama.jpg"
+            /></a>
             <a href="Seljalandsfoss.jpg" class="go_gridItem">
               <img src="Seljalandsfoss.jpg" />
             </a>
@@ -106,7 +111,7 @@
             <div href="#" class="go_gridItem go_gridItem-centered">
               <p class="info">
                 <span
-                  >Grid Overflow is respon&shy;sive CSS layout with optional animated 3D effect, utility classes and
+                  >Grid Overflow is respon&shy;sive CSS grid layout with optional animated effects, utility classes and
                   adjustable by CSS variables.
                 </span>
               </p>
@@ -115,8 +120,8 @@
             <div href="#" class="go_gridItem go_gridItem-centered">
               <p class="info">
                 <span
-                  >Pure CSS solution for masonry layout and grid layout, where grid items can be given vertigo,
-                  pa&shy;no&shy;rama or VIP class to over&shy;flow into the next cell.
+                  >Grid overflow is a pure CSS solution for masonry layout and grid layout, where grid items can
+                  over&shy;flow into the next cell.
                 </span>
               </p>
             </div>
@@ -132,7 +137,8 @@
         </section>
       </div>
       <div class="codeBlock">
-        <div ><pre class="gridgrid">
+        <div>
+          <pre class="gridgrid">
           <b>➜</b>
           <strong>CSS classes:</strong>
           <span>gridOverflow go-3Dfx go-actionIcon</span>
@@ -147,8 +153,10 @@
           <span>}</span>
 
 
-        </pre></div>
-        <div><pre>
+        </pre>
+        </div>
+        <div>
+          <pre>
           <b>➜</b>
           <strong>CSS classes:</strong>
           gridOverflow <strong>go-masonry</strong> go-zoomFx go-actionIcon
@@ -168,7 +176,8 @@
               --masonryItemHeight: 39vw;
             }
           }
-        </pre></div>
+        </pre>
+        </div>
       </div>
 
       <section class="masonry" style="max-width: 1088px">
@@ -205,7 +214,7 @@
             <img src="mykines-lighthouse.jpg" alt="Mykines island - it feels like at the end of the world." />
           </a>
 
-          <a href="mulafossur-panorama.jpg" class="go_gridItem"><img src="mulafossur-panorama.jpg" /></a>
+          <a href="mulafossur-panorama.jpg" data-author="" class="go_gridItem"><img src="mulafossur-panorama.jpg" /></a>
 
           <a href="https://github.com/Roman-Flossler/Grid-Overflow" class="go_gridItem go_gridItem-centered">
             <div class="heading">
@@ -222,7 +231,7 @@
           <div href="#" class="go_gridItem go_gridItem-centered">
             <p class="info">
               <span
-                >&nbsp;&nbsp;Grid Overflow is respon&shy;sive CSS layout with optional animated 3D effect, utility
+                >&nbsp;&nbsp;Grid Overflow is respon&shy;sive CSS grid layout with optional animated effects, utility
                 classes and adjustable by CSS variables.
               </span>
             </p>
@@ -231,8 +240,8 @@
           <div href="#" class="go_gridItem go_gridItem-centered">
             <p class="info">
               <span
-                >&nbsp;&nbsp;Pure CSS solution for masonry layout and grid layout, where grid items can be given
-                vertigo, pa&shy;no&shy;rama or VIP class to over&shy;flow into the next cell.
+                >&nbsp;&nbsp;Grid overflow is a pure CSS solution for masonry layout and grid layout, where grid items
+                can over&shy;flow into the next cell.
               </span>
             </p>
           </div>

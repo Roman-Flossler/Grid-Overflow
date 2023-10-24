@@ -14,7 +14,7 @@ You can use images of any size, they will be automatically adjusted to fit the g
 
 # Implementation
 
-import Grid Overflow CSS
+Link Grid Overflow CSS into head section of HTML document
 
 ```html
 <link rel="stylesheet" href="path/to/GridOverflow3D.min.css" />
@@ -24,7 +24,7 @@ Create some parent element, its children with content and add neccessary classes
 
 ```html
 <!-- gridOverflow class is required - creates responsive grid from grid's direct children (items) -->
-<!-- go-3Dfx class adds to each grid item 3D animated effect on mouse over  -->
+<!-- go-3Dfx or go-zoomFx class adds to each grid item animated effect on mouse over. You can use them together -->
 <!-- go-actionIcon class adds to top right corner of grid items some symbol, but only if grid item is <a> tag  -->
 <div class="gridOverflow go-3Dfx go-actionIcon">
 
@@ -70,7 +70,7 @@ Basic parameters of Grid Overflow can be set via **CSS variables**:
 }
 ```
 
-The number of columns in the grid is determined by **--itemMinWidth**, but the minimum is two.
+The number of columns in the grid is determined by **--itemMinWidth**, but the minimum is two columns.
 
 If the parent element of the gridOverflow has a width of 700px, the grid will have 3 columns: 3 \* 210px + 2 \* 10px for the grid gap (numbers are defined by the CSS variables).
 
@@ -86,9 +86,8 @@ Simply add the go-masonry class to the parent grid element to enable masonry mod
 
 ```html
 <!-- gridOverflow is required - creates the grid  -->
-<!-- go-masonry class turns the grid layout into masonry mode  -->
-<!-- go-zoomFx  class adds to each grid item animated zoom effect on mouse over  -->
-<!-- you can use go-zoomFx and go-3Dfx together, it will make combined effect  -->
+<!-- go-masonry class turns the grid layout into the masonry mode  -->
+<!-- go-3Dfx or go-zoomFx class adds to each grid item animated effect on mouse over. You can use them together -->
 <div class="gridOverflow go-masonry go-zoomFx go-actionIcon">
 
   <!-- grid item (grid's direct child) must have go_gridItem class.  -->

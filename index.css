@@ -1,212 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@500..600&family=JetBrains+Mono&display=swap");
+
+:root {
+  --mobile-width: min(500px, 100vw);
+}
+
 body {
-  padding: 0;
-  margin: 0;
   min-height: 100vh;
-  overflow-x: hidden !important;
-}
-main {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  line-height: 1.33em;
-  color: rgba(255, 255, 255, 0.88);
-  background-color: #f1f1f1;
-  background-image: url(https://roman-flossler.github.io/StoryShowGallery/img/bg.png);
-  background-blend-mode: multiply;
-}
-
-.gridTitle, .overflowTitle {
-  position: absolute;
-  font-size: 10vw;
-  transform: rotate(90deg) translate(33%, -80%);
-  transform-origin: 0 0;
-  color: rgb(35 41 59 / 59%);
-  mix-blend-mode: overlay;
-  left: 0;
-  top: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: normal;
-}
-
-.overflowTitle {
-  transform-origin: 100% 100% 0;
-  transform: rotate(-90deg) translate(0%, 0%);
-  left: auto;
-  right: 0;  
-  font-size: 9vw;
-  overflow: hidden;
-  height: 7.8vw;
-}
-
-section {
-  max-width: 880px;
-  margin: auto;
-  padding: 3vw;
-  padding-bottom: 4.4rem;
-}
-
-section h2 {
-  margin-top: 0;
-  font-size: 66px;
-  color: #8690a3;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-section.masonry {
-  padding-top: 0;
-}
-
-.faroeTexture {  
-  background-image: linear-gradient(to bottom, rgb(226 229 237 / 96%) 10%, hsl(33.23deg 14% 86% / 81%) 100%),
-    url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);
-  box-shadow: -6px 0px 39px #a9a384;
-}
-
-.info {
-  background-color: #750015;
   margin: 0;
-}
-.info span::first-letter {
-  font-size: 180%;
-  font-family: serif;
-}
-
-.heading {
-  margin: 0;
-  background-color: rgb(47, 54, 63);
-  text-align: center;
-}
-
-.heading h1 {
-  font-size: 222%;
-  color: rgb(255, 255, 255);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: normal;
-}
-
-.heading p {
-  color: white;
-  line-height: 1.5em;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.codeLink {
-  color: black;
-  text-align: center;
-  margin-top: 3rem;
-  text-shadow: 0 0 8px white, 0 0 18px white;
-  font-size: 103%;
-}
-
-.codeLink a {
-  color: #005075;
-  text-decoration-style: solid;
-  text-underline-offset: 3px;
-}
-.codeLink a:hover {
-  text-decoration-style: wavy;
-  text-underline-offset: 2px;
-}
-
-.codeBlock {
-  display: flex;
-  justify-content: space-around;  
-}
-
-.codeBlock b {
-  display: inline-block;
-  position: relative;
-  transform: rotate(90deg);  
-  margin-inline: -2rem;
-  top: 1rem;
-  font-size: 22px;
-  opacity: 0.8;
-}
-
-.codeBlock .gridgrid b {
-  transform: rotate(-90deg);
-  color: white;
-}
-
-.codeBlock div {
-  flex-grow: 1;  
-}
-
-.codeBlock .gridgrid {
-  background-image: linear-gradient(to bottom, hsl(33.23deg 14% 86% / 81%) 0%, hsl(33.23deg 14% 86% / 81%) 100%),
-  url(https://www.faroeislands.io/visuals/bg/grass-texture.jpg);  
-  text-align: right;
-  padding-right: 4rem;  
-  background-position: 83px 18px;  
-}
-
-.codeBlock .gridgrid::before {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  height: 100px;
-  top: auto;
-  width: 100%;  
-  background-image:  linear-gradient(to top, hsla(40, 15%, 92%, 0.5) 0%, hsla(36, 14%, 86%, 0) 100%);  
-}
-
-.codeBlock .gridgrid span {
-  background-color: rgb(224, 224, 224);
-  padding-inline: 0.5rem ;
-  box-shadow: 0 0 8px white;
-}
-
-.codeBlock pre {
-  margin: 0;
-  font-family: consolas, monospace;
-  color: black;
-  font-size: 15px;
-  margin-left: -2rem;  
-  overflow: hidden;
-  position: relative;
-}
-
-@media (max-width: 900px) {
-  .codeBlock {
-    display: block;
-  }
-
-  .codeBlock .gridgrid {
-    text-align: left;
-  }
-
-  .gridTitle, .overflowTitle {
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  & > svg {
     display: none;
   }
+
+  h1 {
+    font-size: 74px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  h2 {
+    color: white;
+
+    background: #0000001c;
+    padding: 2px 0.25em;
+    transform: skewX(-10deg);
+  }
+
+  pre {
+    margin: 0;
+    font-size: 15px;
+    color: #000000;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    line-height: 1.5em;
+    span {
+      color: #980f71;
+      text-shadow: 0 0 6px white;
+    }
+    &.wrap {
+      white-space: pre-line;
+      margin-left: 40px !important;
+    }
+  }
+
+  ins {
+    text-decoration: none;
+  }
+
+  aside p {
+    color: black;
+    a {
+      display: inline-block;
+      padding-right: 16px;
+      padding-left: 5px;
+      color: #365137;
+      line-height: 1.5em;
+      white-space: nowrap;
+      text-underline-offset: 2px;
+      &:hover {
+        text-decoration-style: wavy;
+      }
+    }
+  }
 }
 
-::-webkit-scrollbar {
-  background: #046b8d;
-  background: linear-gradient(rgb(165, 0, 55), rgb(0, 138, 180));
-  width: 18px;
-  /* border-left: 1px solid rgb(224, 224, 224);  */
+.twoColLayout {
+  padding: 4vh;
+  padding-bottom: 4vh;
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  flex-wrap: wrap;
+  .mainSection {
+    width: 880px;
+    flex-shrink: 0;
+  }
+  aside {
+    flex-shrink: 0;
+    width: 545px;
+    #codeMasonry,
+    #codeGrid,
+    .hidden {
+      display: none;
+    }
+    .codeMasonry {
+      display: block !important;
+    }
+    .codeGrid {
+      display: block !important;
+    }
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 3px;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
-  background: linear-gradient(  rgb(224, 42, 103), rgb(87, 192, 224));
-  background-size: 100%;
-  margin-top: 6px;  
+main {
+  width: 100%;
+  margin: auto;
+  padding: 18px;
+  line-height: 1.33em;
+  box-sizing: border-box;
+  max-width: var(--mobile-width);
+
+  a {
+    text-decoration: none;
+  }
+
+  & * {
+    margin: 0;
+    color: #ffffffe0;
+  }
+
+  &.shrink {
+    animation-name: shrink;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+  }
+  &.expand {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-name: expand;
+  }
+
+  &.delay {
+    animation-delay: 1.3s;
+  }
+
+  p.info span::first-letter {
+    font-size: 180%;
+  }
 }
 
-::-webkit-scrollbar-button {
-  height: 20px;
-  background: #242d30;
-  color: white;
+.butts {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 122px;
+  position: relative;
+
+  button {
+    font-family: "Exo", sans-serif;
+    font-weight: 500;
+    background-color: white;
+    border: 3px dotted #d1d4d9;
+    line-height: 20px;
+    height: min-content;
+    height: 35px;
+    padding-inline: 8px;
+    box-sizing: content-box;
+    cursor: pointer;
+    color: #365137;
+    font-size: 15px;
+
+    letter-spacing: -0.025em;
+    span {
+      font-size: 115%;
+    }
+    &::first-letter {
+      color: #980f71;
+      font-weight: 600;
+    }
+
+    &:hover {
+      border: 6px dashed #d4ddd1;
+      margin: -3px;
+      transition: 0.3s all;
+    }
+
+    &.dark {
+      filter: invert(1);
+      color: black;
+      border: 3px dotted #29222d;
+      &:hover {
+        border: 6px dashed #29222d;
+      }
+    }
+
+    &.efx {
+      transform: skewX(-8deg);
+    }
+    &.efx.zoomFx {
+      transform: scaleY(1.13);
+    }
+  }
 }
 
-::-webkit-scrollbar-button:vertical:decrement {
-  background: url(https://www.flor.cz/gridOverflow/src/arrow-top.png) no-repeat 3px 0;
+@media (max-width: 1600px) {
+  .butts {
+    height: 66px;
+    margin-right: -55px;
+  }
+  .twoColLayout {
+    gap: 30px;
+    aside {
+      width: 100%;
+      max-width: 880px;
+      padding-inline: 2vw;
+      box-sizing: border-box;
+      h2::first-letter {
+        font-size: 0;
+      }
+    }
+  }
 }
 
-::-webkit-scrollbar-button:vertical:increment {
-  background: url(https://www.flor.cz/gridOverflow/src/arrow-bottom.png) no-repeat 3px 0;
+@media (max-width: 880px) {
+  .butts {
+    height: 111px;
+    margin-right: 0;
+  }
+  .twoColLayout {
+    width: 100%;
+    overflow: hidden;
+    gap: 30px;
+    padding-inline: 5vw;
+    box-sizing: border-box;
+
+    main {
+      padding: 10px;
+    }
+
+    aside {
+      width: 100%;
+      padding-inline: 0;
+      box-sizing: border-box;
+      h1 {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 505px) {
+  .butts {
+    height: 155px;
+    margin-right: -3vw;
+  }
+  .twoColLayout {
+    main {
+      padding: 2px;
+    }
+    aside {
+      pre {
+        margin-left: -30px;
+        &.wrap {
+          margin-left: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+.gridOverflow.go-masonry {
+  .go_gridItem .go_caption {
+    display: none;
+  }
+  .go_gridItem:nth-child(4) .go_caption {
+    display: block;
+    &:first-line {
+      float: left;
+      color: transparent;
+      line-height: 2px;
+    }
+  }
+}
+
+@keyframes shrink {
+  from {
+    max-width: 880px;
+  }
+  to {
+    max-width: var(--mobile-width);
+  }
+}
+
+@keyframes expand {
+  from {
+    max-width: var(--mobile-width);
+  }
+  to {
+    max-width: 880px;
+  }
 }

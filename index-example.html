@@ -3,56 +3,76 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Grid Overflow + Story Show Gallery lightbox</title>
-    <!-- CSS styles of Grid Overflow - only file that is needed to import -->
-    <link rel="stylesheet" href="src/GridOverflow3D.css" />
+    <title>Grid Overflow - CSS library for responsive masonry and grid layout</title>
+
+    <!-- ~~~~ Grid Overflow CSS library, it creates responsive grid layout for thumbnails ~~~~  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/grid-overflow@1/src/GridOverflow3D.min.css" />
     <!-- Story Show Gallery on click opens images into full screen lightbox -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- helper styles and scripts - needed only for this showcase -->
+    <script src="./index.js"></script>
     <link rel="stylesheet" href="index.css" />
     <base href="https://roman-flossler.github.io/StoryShowGallery/photos/" target="_blank" />
+
     <style>
       /* configuration of the Grid Overflow  */
-
       .gridOverflow {
         --gridGap: 1px;
-        --itemMinWidth: 210px;
+        --itemMinWidth: 190px;
         --itemAspectRatio: 1;
         --itemRounding: 6px;
-        --linkActionIcon: "⤢";
-      }
-      .gridOverflow .go_gridItem {
-        box-shadow: 0 0 3px #00253b;
-      }
-      .gridOverflow.go-masonry .go_gridItem {
-        box-shadow: none;
+        --linkActionIcon: "⫸";
       }
 
       .gridOverflow.go-masonry {
-        --gridGap: 10px;
+        --gridGap: 8px;
         --itemMinWidth: 30%;
         --itemRounding: 25% 88% 10% 88% / 18% 9px 15% 9px;
         --linkActionIcon: "»";
         --masonryItemHeight: 200px;
       }
 
+      /*
       @media (max-width: 600px) {
         .gridOverflow.go-masonry {
-          --itemMinWidth: 45%;
-          --masonryItemHeight: 39vw;
+          --itemMinWidth: 40%;
+          --masonryItemHeight: 166px;
+        }
+      }*/
+      @container fenceBox (max-width: 600px) {
+        .gridOverflow.go-masonry {
+          --itemMinWidth: 40%;
+          --masonryItemHeight: 166px;
+        }
+      }
+
+      @container fenceBox (max-width: 450px) {
+        .gridOverflow.go-masonry {
+          --gridGap: 3px;
+          --itemRounding: 3px;
+          --itemMinWidth: 40%;
+          --masonryItemHeight: 148px;
         }
       }
     </style>
   </head>
 
-  <body>
-    <span class="gridTitle">#Grid</span>
-    <span class="overflowTitle">Overflow</span>
-    <main>
-      <div class="faroeTexture">
-        <section>
-          <!-- ssg, fs and ssgdim are classes of Story Show Gallery  -->
-          <div class="gridOverflow go-3Dfx go-actionIcon ssg fs">
+  <body style="color: #ffffffe0; background: #d4ddd1">
+    <div class="twoColLayout">
+      <section class="mainSection">
+        <main
+          id="fenceBox"
+          class="expand delay"
+          style="container: fenceBox / inline-size; max-width: min(500px, 100vw)"
+        >
+          <!-- parent grid element - gridOverflow class creates responsive square grid from grid's direct children (items) -->
+          <!-- go-3Dfx class adds to each grid item 3D animated effect on mouse over  -->
+          <!-- go-actionIcon class adds to top right corner of grid items some symbol, but only if grid item is <a> tag  -->
+          <!-- go-masonry class switch the layout into masonry mode -->
+
+          <div class="gridOverflow go-masonry go-3Dfx go-actionIcon ssg fs" id="grid">
+            <!-- grid item (grid's direct child) should have go_gridItem class. -->
             <a href="sorvagsvatn-lake.jpg" class="go_gridItem go_gridItem-vertigo">
               <img
                 src="sorvagsvatn-lake.jpg"
@@ -76,7 +96,7 @@
             <a href="puffins.jpg" class="go_gridItem go_gridItem-VIP">
               <img src="puffins.jpg" alt="Colonies of Puffins are nesting on Mykines island." />
               <span class="go_caption go_caption-full"
-                >.VIP class<br />
+                >.VIP class <br />
                 Colonies of Puffins are nesting on Mykines island.</span
               >
             </a>
@@ -85,9 +105,7 @@
               <img src="mykines-lighthouse.jpg" alt="Mykines island - it feels like at the end of the world." />
             </a>
 
-            <a href="mulafossur-panorama.jpg" data-author="" class="go_gridItem"
-              ><img src="mulafossur-panorama.jpg"
-            /></a>
+            <a href="mulafossur-panorama.jpg" class="go_gridItem"><img src="mulafossur-panorama.jpg" /></a>
             <a href="Seljalandsfoss.jpg" class="go_gridItem">
               <img src="Seljalandsfoss.jpg" />
             </a>
@@ -96,176 +114,125 @@
               href="https://github.com/Roman-Flossler/Grid-Overflow"
               class="go_gridItem go_gridItem-panorama go_gridItem-centered"
             >
-              <div class="heading">
+              <div class="heading" style="background: #2f363f">
                 <div>
-                  <h1># Grid Overflow</h1>
+                  <h2 style="transform: none"># Grid Overflow</h2>
+                  <br />
                   <p>
-                    <span style="font-size: 111%">+ Story Show Gallery lightbox</span> <br />
-                    after a click on a thumbnail
+                    <span style="font-size: 108%; color: white">+ Story Show Gallery lightbox</span> <br />
+                    <i style="opacity: 0.64">after a click on a thumbnail</i>
                   </p>
                 </div>
               </div>
               <span class="go_caption">.panorama class</span>
             </a>
 
-            <div href="#" class="go_gridItem go_gridItem-centered">
+            <div href="#" class="go_gridItem go_gridItem-centered" style="background: #750015">
               <p class="info">
                 <span
-                  >Grid Overflow is respon&shy;sive CSS grid layout with optional animated effects, utility classes and
-                  adjustable by CSS variables.
+                  >Grid Overflow is a CSS library for respon&shy;sive gallery thumbnails layout. It has optional 3D
+                  hover effect, utility classes. Adjust&shy;able by CSS variables.
                 </span>
               </p>
             </div>
 
-            <div href="#" class="go_gridItem go_gridItem-centered">
+            <div href="#" class="go_gridItem go_gridItem-centered" style="background: #750015">
               <p class="info">
                 <span
-                  >Grid overflow is a pure CSS solution for masonry layout and grid layout, where grid items can
-                  over&shy;flow into the next cell.
+                  >Grid Overflow offers masonry layout and grid layout, where grid items can be given vertigo,
+                  pa&shy;no&shy;rama or VIP class to over&shy;flow into the next cell.
                 </span>
               </p>
             </div>
           </div>
-          <p class="codeLink">
-            <span>Code of this gallery:</span>
-            <a
-              href="https://codesandbox.io/s/gallery-thumbnails-in-css-grid-layout-full-screen-lightbox-8u6ybo"
-              target="_blank"
-              >Codesandbox.io - Grid Overflow</a
-            >
-          </p>
-        </section>
-      </div>
-      <div class="codeBlock">
-        <div>
-          <pre class="gridgrid">
-          <b>➜</b>
-          <strong>CSS classes:</strong>
-          <span>gridOverflow go-3Dfx go-actionIcon</span>
-
-          <strong>CSS variables:</strong>
-          <span>.gridOverflow {</span>
-            <span>--gridGap: 1px;</span>
-            <span>--itemMinWidth: 210px;</span>
-            <span>--itemRounding: 6px;</span>
-            <span>--linkActionIcon: "⤢";</span>
-            <span>--itemAspectRatio: 1;</span>
-          <span>}</span>
-
-
-        </pre>
-        </div>
-        <div>
-          <pre>
-          <b>➜</b>
-          <strong>CSS classes:</strong>
-          gridOverflow <strong>go-masonry</strong> go-zoomFx go-actionIcon
-        
-          <strong>CSS variables:</strong>
-          .gridOverflow.go-masonry {
-            --gridGap: 10px;
-            --itemMinWidth: 30%;
-            --itemRounding: 25% 88% 10% 88% / 18% 9px 15% 9px;
-            --linkActionIcon: "»";
-            --masonryItemHeight: 200px;
-          }
-
-          @media (max-width: 600px) {
-            .gridOverflow.go-masonry {
-              --itemMinWidth: 45%;
-              --masonryItemHeight: 39vw;
-            }
-          }
-        </pre>
-        </div>
-      </div>
-
-      <section class="masonry" style="max-width: 1088px">
-        <h2>Masonry Mode:</h2>
-        <div class="gridOverflow go-masonry go-zoomFx go-actionIcon ssg fs">
-          <a href="sorvagsvatn-lake.jpg" class="go_gridItem">
-            <img
-              src="sorvagsvatn-lake.jpg"
-              alt="Sørvágsvatn lake is placed on the edge of Traelanípa cliff. Incredible view."
-            />
-          </a>
-
-          <a href="faroe-islands-map.jpg" class="go_gridItem">
-            <img
-              src="faroe-islands-map.jpg"
-              alt="According to National Geographic the Faroe Islands are the world's most attractive archipelago."
-            />
-          </a>
-
-          <a href="klaksvik-sheeps.jpg" class="go_gridItem">
-            <img src="klaksvik-sheeps.jpg" alt="There are more sheeps than people and nature is pristine." />
-          </a>
-
-          <a href="Seljalandsfoss.jpg" class="go_gridItem">
-            <img src="Seljalandsfoss.jpg" />
-            <span class="go_caption go_caption-full">Aurora behind the Seljalandsfoss waterfall.</span>
-          </a>
-
-          <a href="puffins.jpg" class="go_gridItem">
-            <img src="puffins.jpg" alt="Colonies of Puffins are nesting on Mykines island." />
-          </a>
-
-          <a href="mykines-lighthouse.jpg" class="go_gridItem">
-            <img src="mykines-lighthouse.jpg" alt="Mykines island - it feels like at the end of the world." />
-          </a>
-
-          <a href="mulafossur-panorama.jpg" data-author="" class="go_gridItem"><img src="mulafossur-panorama.jpg" /></a>
-
-          <a href="https://github.com/Roman-Flossler/Grid-Overflow" class="go_gridItem go_gridItem-centered">
-            <div class="heading">
-              <div>
-                <h1># Grid Overflow</h1>
-                <p>
-                  <span style="font-size: 111%">+ Story Show Gallery lightbox</span> <br />
-                  after a click on a thumbnail
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <div href="#" class="go_gridItem go_gridItem-centered">
-            <p class="info">
-              <span
-                >&nbsp;&nbsp;Grid Overflow is respon&shy;sive CSS grid layout with optional animated effects, utility
-                classes and adjustable by CSS variables.
-              </span>
-            </p>
-          </div>
-
-          <div href="#" class="go_gridItem go_gridItem-centered">
-            <p class="info">
-              <span
-                >&nbsp;&nbsp;Grid overflow is a pure CSS solution for masonry layout and grid layout, where grid items
-                can over&shy;flow into the next cell.
-              </span>
-            </p>
-          </div>
-        </div>
-        <p class="codeLink">
-          <span>Code of this gallery:</span>
-          <a
-            href="https://codesandbox.io/s/masonry-css-layout-of-gallery-thumbnails-full-screen-lightbox-wkzsvo"
-            target="_blank"
-            >Codesandbox.io - Grid Overflow Masonry</a
-          >
-        </p>
+        </main>
       </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.js"></script>
-      <script>
-        SSG.cfg.globalAuthorCaption =
-          "<a href='https://roman-flossler.github.io/StoryShowGallery' target='_blank'>Story Show Gallery</a>";
-        SSG.cfg.watermarkText = "🐑 Faroe&#8202;Islands&#8202;.io";
-        SSG.cfg.watermarkFontSize = 18;
-        SSG.cfg.watermarkOffsetX = 98;
-        SSG.cfg.watermarkOpacity = 0.58;
-        SSG.cfg.fileToLoad = "https://roman-flossler.github.io/StoryShowGallery/uni.html";
-      </script>
-    </main>
+      <aside>
+        <h1>Grid Overflow</h1>
+        <!-- buttons for playing with the gallery features  -->
+
+        <section class="butts">
+          <button onclick="toggleThumbnailsLayout()"><span>᎒᎒᎒</span>&ensp;masonry / grid</button>
+          ___
+          <button onclick="showResponsivity()"><span>↹</span>&numsp;show responsivity</button>
+          ___
+          <button class="efx" onclick="toggleHoverEffect(this)">✴&ensp;tilt / zoom :hover</button>
+
+          <span style="width: 4.4%"></span>
+
+          <div style="display: flex">
+            <button onClick="toggleGalleryTheme(this)">◑&ensp;theme: LIGHT</button>
+            ___
+            <button id="ssgrun" onClick="runStoryShowGallery()">▶&ensp;SSG.run()</button>
+          </div>
+        </section>
+        <br />
+        <p>
+          Grid overflow, as a pure CSS library, is configurable by CSS classes and variables.The code below shows
+          configuration of the left (top) gallery:
+        </p>
+
+        <div id="codeGrid">
+          <h2>⇐ CSS classes:</h2>
+          <pre class="wrap">
+    gridOverflow go-3Dfx go-actionIcon <ins class="hidden">go-zoomFx</ins>
+        </pre>
+          <h2>⇐ CSS variables:</h2>
+          <pre>
+    <span>.gridOverflow</span> {
+      --gridGap: <span>1px</span>;
+      --itemMinWidth: <span>190px</span>;
+      --itemRounding: <span>6px</span>;
+      --linkActionIcon: <span>"⫸"</span>;
+      --itemAspectRatio: <span>1</span>;
+    }
+      </pre
+          >
+        </div>
+
+        <div id="codeMasonry" class="codeMasonry">
+          <h2>⇐ CSS classes:</h2>
+          <pre class="wrap">
+    gridOverflow go-3Dfx go-actionIcon go-masonry <ins class="hidden">go-zoomFx</ins>
+          </pre>
+          <h2>⇐ CSS variables:</h2>
+          <pre>
+    <span>.gridOverflow.go-masonry</span>  {
+      --gridGap: <span>8px;</span>
+      --itemMinWidth: <span>30%;</span>
+      --itemRounding: <span>25% 88% 10% 88% / 18% 9px 15% 9px;</span>
+      --linkActionIcon: <span>"»";</span>
+      --masonryItemHeight: <span>200px;</span>
+    }
+
+    <span>@media</span> (max-width: <span>600px</span>) {
+    <span>.gridOverflow.go-masonry</span> {
+        --itemMinWidth: <span>40%;</span>
+        --masonryItemHeight: <span>166px;</span>
+      }
+    }
+</pre>
+        </div>
+        <p>
+          <a href="https://github.com/Roman-Flossler/Grid-Overflow" target="_blank">Documentation</a>
+          <a href="https://codepen.io/Roman-Flossler/pen/jOjzxQy" target="_blank">Try it live at CodePen</a>
+          <a href="https://codesandbox.io/p/sandbox/cool-albattani-c7gm6s" target="_blank">React example at Sandbox</a>
+        </p>
+      </aside>
+    </div>
+
+    <!-- Story Show Gallery script and configuration -->
+    <script src="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.js"></script>
+    <script>
+      SSG.cfg.globalAuthorCaption =
+        "<a href='https://roman-flossler.github.io/StoryShowGallery' target='_blank'>Story Show Gallery</a>";
+      SSG.cfg.watermarkText = "🐑 Faroe&#8202;Islands&#8202;.io";
+      SSG.cfg.watermarkFontSize = 18;
+      SSG.cfg.watermarkOffsetX = 3;
+      SSG.cfg.watermarkOffsetY = 1.5;
+      SSG.cfg.watermarkOpacity = 0.66;
+      SSG.cfg.theme = "light";
+    </script>
   </body>
 </html>

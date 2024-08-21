@@ -1,8 +1,8 @@
 # Grid Overflow - responsive CSS grid layout
 
-A pure CSS solution for masonry layout and grid layout, where grid items can be given vertigo, pa­no­rama or VIP classes to set their over­flow into the next cell.
+**A pure CSS solution** for masonry layout and grid layout, where grid items can be given vertigo, pa­no­rama or VIP classes to set their over­flow into the next cell.
 
-Responsive CSS layout based on CSS grid + flex with optional animated 3D effect, utility classes and adjustable via CSS variables.
+**Responsive CSS layout** based on CSS grid + flex with optional animated 3D effect, utility classes and adjustable via CSS variables.
 
 You can use images of any size, they will be automatically adjusted to fit the grid according to the CSS variables settings.
 
@@ -10,7 +10,9 @@ You can use images of any size, they will be automatically adjusted to fit the g
 
 .
 
-😎 You can try this example and view its source code at https://www.flor.cz/gridOverflow
+😎 You can try this example at https://www.flor.cz/gridOverflow
+
+Grid Overflow can be used with any framework, here is the React demo - https://codesandbox.io/p/sandbox/cool-albattani-c7gm6s
 
 # Implementation
 

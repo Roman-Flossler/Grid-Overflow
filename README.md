@@ -10,7 +10,7 @@ You can use images of any size, they will be automatically adjusted to fit the g
 
 .
 
-😎 You can try this example at https://www.flor.cz/gridOverflow
+😎 You can try above example at https://www.flor.cz/gridOverflow
 
 Grid Overflow can be used with any framework, here is the React demo - https://codesandbox.io/p/sandbox/cool-albattani-c7gm6s
 
